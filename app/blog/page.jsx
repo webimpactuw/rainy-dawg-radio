@@ -1,7 +1,7 @@
 import React from 'react'
-import {client} from '../sanity'
+import { client } from '../../sanity/lib/client'
 
-async function getData() {
+async function getStaticProps() {
   const query = `*[_type == "post"]{
     title,
     slug,
@@ -16,7 +16,7 @@ async function getData() {
 }
 
 const Blog = async () => {
-  const data = await getData();
+  const data = await getStaticProps();
 
   console.log(data);
   return (
