@@ -1,5 +1,6 @@
 import React from 'react'
 import { client } from '../../sanity/lib/client'
+import Link from 'next/link';
 
 async function getStaticProps() {
   const query = `*[_type == "post"]{
@@ -16,20 +17,18 @@ async function getStaticProps() {
 }
 
 const Blog = async () => {
-  const data = await getStaticProps();
+  const posts = await getStaticProps();
 
-  console.log(data);
+  console.log(posts);
   return (
     <div>
-      title:
-      {data[0].title} 
-      published:
-      {data[0].publishedAt}
-      <a href={`/blog/${data[0].slug.current}`}>link</a>
-      title:
-      {data[1].title} 
-      published:
-      {data[1].publishedAt}
+      {posts.map((post, index) => (
+        <div key={index}>
+          <p>title: {post.title}</p>
+          <p>published: {post.publishedAt}</p>
+          <Link href={`/blog/${post.slug.current}`}>link</Link>
+        </div>
+      ))}
     </div>
   )
 }
