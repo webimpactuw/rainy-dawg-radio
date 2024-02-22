@@ -1,9 +1,8 @@
 import React from 'react'
+import Staff from '../ui/Staff'
 
-const About = () => {
-  return (
-    <div>about page</div>
-  )
+export default async function About() {
+  return <main>
+    <Staff/>
+  </main>
 }
-
-export default About

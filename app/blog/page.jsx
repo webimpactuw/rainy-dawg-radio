@@ -1,8 +1,11 @@
-import React from 'react'
-import { client } from '../../sanity/lib/client'
+import React from 'react';
+import { client } from '../../sanity/lib/client';
 import Link from 'next/link';
 
-async function getStaticProps() {
+
+async function getData() {
+  // const slug = 
+  
   const query = `*[_type == "post"]{
     title,
     slug,
@@ -11,26 +14,25 @@ async function getStaticProps() {
     publishedAt,
   }`;
 
-  const data = await client.fetch(query);
-
-  return data;
+  const res = await client.fetch(query);
+ 
+  return res;
 }
 
-const Blog = async () => {
-  const posts = await getStaticProps();
-
-  console.log(posts);
+const Post = async () => {
+  const posts = await getData();
+//   console.log(posts);
   return (
     <div>
       {posts.map((post, index) => (
         <div key={index}>
           <p>title: {post.title}</p>
           <p>published: {post.publishedAt}</p>
-          <Link href={`/blog/${post.slug.current}`}>link</Link>
+          <Link href={`/blog/post/${post.slug.current}`}>link</Link>
         </div>
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default Blog
+export default Post;
