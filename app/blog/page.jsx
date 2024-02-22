@@ -28,7 +28,7 @@ const Post = async () => {
         <div key={index}>
           <p>title: {post.title}</p>
           <p>published: {post.publishedAt}</p>
-          <Link href={`/blog/post/${post.slug.current}`}>link</Link>
+          <Link href={`/blog/${post.slug.current}`}>link</Link>
         </div>
       ))}
     </div>
