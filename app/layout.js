@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./ui/Navbar";
+import Player from "./ui/Player";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,6 +16,12 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <Navbar/>
         {children}
+        <Player show={"The Pop Show"} 
+                dj={"with " + "DJ Shrimp"} 
+                time={"9:00 am - 10:00 am"} 
+                cover={""} // will be link
+                music={"Flamingo"} 
+                artist={"Kero Kero Bonito"}/>
       </body>
     </html>
   );
