@@ -29,7 +29,7 @@ export default function Player(props: PlayerProps) {
     }
 
     return (
-        <div className="flex flex-col justify-between border-2 border-black bg-white absolute bottom-0 left-0 w-full">
+        <div className="flex flex-col justify-between border-2 border-black bg-white bottom-0 left-0 w-full sticky">
             <div className="flex justify-between items-center px-4 py-2">
                 <div className="flex items-center space-x-2">
                     <div className="w-5 h-5 bg-red-500 rounded-full"></div>
@@ -54,13 +54,9 @@ export default function Player(props: PlayerProps) {
                 
                     <button className="ml-2" onClick={playMusic}>
                         {isPlaying ? (
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25v13.5m-7.5-13.5v13.5" />
-                            </svg>
+                            <Image src="/pause.png" width={25} height={25} alt={"pause"}/>
                         ) : (
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
-                            </svg>
+                            <Image src="/play.png" width={25} height={25} alt={"play"}/>
                         )}
                     </button>
                     {/* rainy dawg was down */}
