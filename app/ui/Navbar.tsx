@@ -3,7 +3,7 @@ import Image from 'next/image'
  
 export default function Navbar() {
     return (
-        <nav className="flex justify-between items-center pl-10 pr-10 absolute bottom-100 left-0 w-full bg-white pt-5 pb-5">
+        <nav className="flex justify-between items-center pl-10 pr-10 w-full bg-white pt-5 pb-5">
             <Link href="/">
                 <Image src="/logoexpanded.png" width={250} height={250} alt={"Rainy Dawg Radio"}/>
             </Link>

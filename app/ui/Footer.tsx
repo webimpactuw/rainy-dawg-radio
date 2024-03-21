@@ -21,7 +21,7 @@ export default function Footer() {
             <a href="https://facebook.com" className="text-black hover:text-gray-700">
                 <FaFacebookF />
             </a>
-            <a href="https://instagram.com" className="text-black hover:text-gray-700">
+            <a href="https://www.instagram.com/rainydawgradio/" className="text-black hover:text-gray-700">
                 <FaInstagram />
             </a>
             <a href="https://spotify.com" className="text-black hover:text-gray-700">

@@ -14,16 +14,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={inter.className + " flex flex-col"}>
         <Navbar/>
         {children}
         <Footer/>
-        <Player show={"The Pop Show"} 
-                dj={"with " + "DJ Shrimp"} 
-                time={"9:00 am - 10:00 am"} 
-                cover={""} // will be link
-                music={"Flamingo"} 
-                artist={"Kero Kero Bonito"}/>
+        <Player/>
       </body>
     </html>
   );

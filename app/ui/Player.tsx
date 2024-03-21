@@ -1,32 +1,21 @@
-'use client'
 import Image from 'next/image'
-import { useRef, useState } from 'react'
-type PlayerProps = {show: string, 
-                    dj: string, 
-                    time: string, 
-                    cover: string, 
-                    music: string, 
-                    artist: string}
+import PlayButton from './PlayButton';
 
-export default function Player(props: PlayerProps) {
-    const audioRef = useRef<HTMLAudioElement>(null);
-    const [isPlaying, setIsPlaying] = useState(false);
-    // const [isLive, setIsLive] = useState();
+async function getMusic() {
+    const res = await fetch('https://spinitron.com/api/spin?count=1&access-token=VIT_hdbWICcgF3nGwvcLJCf6', { next: {revalidate: 100} })
+    
+    return res.json();
+}
 
-    // Function to play music
-    const playMusic = () => {
-        const audio = audioRef.current;
-        if (audio) {
-            // If the audio is paused, play it, otherwise pause it
-            if (audio.paused) {
-                audio.play().catch(err => console.error("Error playing the stream:", err));
-                setIsPlaying(true);
-            } else {
-                audio.pause();
-                setIsPlaying(false);
-            }
-        }
-    }
+async function getShow() {
+    const res = await fetch('https://spinitron.com/api/shows?count=1&access-token=VIT_hdbWICcgF3nGwvcLJCf6', { next: {revalidate: 100} })
+
+    return res.json();
+}
+
+export default async function Player() {
+    const music = await getMusic();
+    const show = await getShow();
 
     return (
         <div className="flex flex-col justify-between border-2 border-black bg-white bottom-0 left-0 w-full sticky">
@@ -37,30 +26,22 @@ export default function Player(props: PlayerProps) {
                     <span className="text-center text-lg">Live</span>
                 </div>
                 <div className="flex items-center justify-center space-x-3">
-                    <span className="font-bold text-lg">The Pop Show</span>
-                    <span>with DJ Shrimp</span>
+                    <span className="font-bold text-lg">test show</span>
+                    <span>with TEST DJ</span>
                     <span>9:00 am - 10:00 am</span>
                 </div>
             
                 <div className="flex items-center justify-center space-x-3">
-                    <Image src="/testCover.png" width={61} height={61} alt={"album cover"}/>
+                    <Image src={music.items[0].image}  width={61} height={61} alt={"album cover"}/>
                 
                     <div className="ml-2">
-                        <span className="font-bold">Flamingo</span>
+                        <span className="font-bold">{music.items[0].song}</span>
                     </div>
                     <div className="ml-2">
-                        <span className="text-sm">Kero Kero Bonito</span>
+                        <span className="text-sm">{music.items[0].artist}</span>
                     </div>
-                
-                    <button className="ml-2" onClick={playMusic}>
-                        {isPlaying ? (
-                            <Image src="/pause.png" width={25} height={25} alt={"pause"}/>
-                        ) : (
-                            <Image src="/play.png" width={25} height={25} alt={"play"}/>
-                        )}
-                    </button>
-                    {/* rainy dawg was down */}
-                    <audio ref={audioRef} src="https://cp10.shoutcheap.com:18383/stream" preload="none"></audio> 
+
+                    <PlayButton />
                 </div>
             </div>
         </div>

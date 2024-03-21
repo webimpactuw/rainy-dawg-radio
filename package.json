@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@next/font": "^14.1.4",
+    "@portabletext/react": "^3.0.13",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.28.0",
     "next": "14.1.0",
