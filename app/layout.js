@@ -1,10 +1,10 @@
-import { Inter } from "next/font/google";
+import { Azeret_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./ui/Navbar";
 import Player from "./ui/Player";
 import Footer from "./ui/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Azeret_Mono({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Create Next App",

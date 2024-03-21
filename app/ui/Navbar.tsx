@@ -8,7 +8,7 @@ export default function Navbar() {
                 <Image src="/logoexpanded.png" width={250} height={250} alt={"Rainy Dawg Radio"}/>
             </Link>
 
-            <div className="flex space-x-6">
+            <div className="flex space-x-14">
                 <Link href="/about" className="hover:text-gray-700">About</Link>
                 <Link href="/listen" className="hover:text-gray-700">Listen</Link>
                 <Link href="/blog" className="hover:text-gray-700">Blog</Link>
