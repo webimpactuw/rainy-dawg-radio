@@ -1,5 +1,10 @@
-export default async function About() {
-    return (<div className="w-full h-screen">
+import Header from './header'
 
-            </div>)
+
+export default function About() {
+    // Testing
+    return (
+        <div className="w-full h-screen ">
+            <Header/>
+        </div>)
 }
