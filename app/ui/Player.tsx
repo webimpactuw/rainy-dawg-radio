@@ -17,8 +17,6 @@ export default async function Player() {
     const music = await getMusic();
     const show = await getShow();
 
-    console.log(show);
-
     return (
         <div className="flex flex-col justify-between border-2 border-black bg-white bottom-0 left-0 w-full sticky">
             <div className="flex justify-between items-center px-4 py-2">
