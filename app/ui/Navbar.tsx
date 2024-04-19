@@ -13,7 +13,6 @@ export default function Navbar() {
                 <Link href="/listen" className="hover:text-gray-700">Listen</Link>
                 <Link href="/blog" className="hover:text-gray-700">Blog</Link>
                 <Link href="/gallery" className="hover:text-gray-700">Gallery</Link>
-                <Link href="/zine" className="hover:text-gray-700">Zine!</Link>
             </div>
         </nav>)
 }
