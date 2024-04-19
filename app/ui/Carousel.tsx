@@ -13,7 +13,8 @@ const Carousel = ({ children }) => {
 
   return (
     <div className="relative bg-gradient-to-b from-white from-85% to-rgba(231,189,251,255) w-screen h-3/4">
-      <div className="overflow-hidden w-screen h-2/3">
+      <div className="overflow-hidden w-screen h-full"> 
+      {/* height might need to change it was 2/3 */}
         {React.Children.map(children, (child, index) =>
           index === currentImage ? child : null
         )}
