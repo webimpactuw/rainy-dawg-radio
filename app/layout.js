@@ -1,7 +1,7 @@
 import { Azeret_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./ui/Navbar";
-import Player from "./ui/Player";
+import Player from "./ui/PlayerTest";
 import Footer from "./ui/Footer";
 
 const inter = Azeret_Mono({ subsets: ["latin"] });
