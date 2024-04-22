@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import ProfileSection from './members/profiles'
 import IntroSection from './intro'
-import TeamSection from './joinTeam'
+import TeamSection from './TeamApps'
 
 export default function About() {
     // Testing

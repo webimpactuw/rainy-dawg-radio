@@ -20,7 +20,7 @@ const currJobs: JobPost[] = [
     }
 ]
 
-const TeamApp = () => {
+const TeamApps = () => {
     return (
         <div>
             <Image src='/joinTheTeam.png' alt="join the team" width={400}  height={400}
@@ -34,4 +34,4 @@ const TeamApp = () => {
     )
 }
 
-export default TeamApp
+export default TeamApps
