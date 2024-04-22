@@ -1,11 +1,17 @@
-import Header from './header'
-import ProfileSection from './profiles'
+import Image from 'next/image'
+import ProfileSection from './members/profiles'
+import IntroSection from './intro'
+import TeamSection from './joinTeam'
 
 export default function About() {
     // Testing
     return (
-        <div className="w-full ">
-            <Header/>
+        <div className="w-full">
+            <header className="bg-rdr-purple text-3xl text-center font-semibold pt-20 pb-10 h-30">
+                About Us
+            </header>
+            <IntroSection/>
             <ProfileSection/>
+            <TeamSection/>
         </div>)
 }
