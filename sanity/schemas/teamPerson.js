@@ -1,6 +1,6 @@
-export const contactPerson = {
-    name: 'contactperson',
-    title: 'Contact Person',
+export const teamPerson = {
+    name: 'teamperson',
+    title: 'Team Person',
     type: 'document',
     fields: [
         {
