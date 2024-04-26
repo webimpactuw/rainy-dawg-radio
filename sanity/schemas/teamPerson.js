@@ -22,7 +22,7 @@ export const teamPerson = {
                 title: 'Alternative Text',
               }
             ]
-          },
+        },
         {
             name: 'role',
             title: 'Role',

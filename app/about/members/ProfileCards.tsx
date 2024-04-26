@@ -3,23 +3,22 @@ import Card from '../../ui/Card'
 import { client } from '../../../sanity/lib/client';
 
 async function getData() {
-    const query = `*[_type == "teamperson"]{
-        name,
+    const query = `*[_type == "teamperson"] | order(_createdAt asc) {
         image {
             asset -> {
             url
             }
         },
+        name,
         role,
     }`
 
     const res = await client.fetch(query);
     return res;
-}
+} 
 
 const ProfileCards = async () => {
     const fetchedPeople = await getData();
-    console.log(fetchedPeople);
     return (
         <>
             <header>

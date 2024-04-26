@@ -1,3 +1,6 @@
 export default function Listen() {
-    return (<></>)
+    return (
+    <>
+        Now Playing:
+    </>)
 }
