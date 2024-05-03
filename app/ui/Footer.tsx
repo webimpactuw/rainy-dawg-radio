@@ -5,7 +5,7 @@ import { FaFacebookF, FaInstagram, FaSpotify, FaTumblr, FaXTwitter } from 'react
  
 export default function Footer() {
     return (
-        <footer className="m-24 p-20">
+        <footer className="m-16 p-20">
             {/* Container controlling all three major components */}
             <div className='flex flex-row justify-center'>
                 {/* Container with logo and develop tag */}

@@ -1,10 +1,15 @@
-const ZineCard = ({ coverUrl, date}) => {
+import Image from 'next/image'
+
+const ZineCard = ({ coverUrl, date, link}) => {
     return (
-        <div className="outline outline-1 max-w-96">
-            <header className='py-2 text-center font-semibold bg-rdr-yellow text-3xl outline outline-1'>
-                {date}
-            </header>
-        </div>
+        <a href={link}>
+            <div className="outline outline-1 max-w-96">
+            <Image src={coverUrl} alt={coverUrl} width='400' height='300'/> 
+                <header className='py-2 text-center font-semibold text-3xl outline outline-1'>
+                    {date}
+                </header>
+            </div>
+        </a>
     )
 }
 
