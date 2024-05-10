@@ -1,26 +1,63 @@
 'use client'
 import Image from "next/image"
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Carousel from "./Carousel";
+import { client } from "../../sanity/lib/client";
+import Link from "next/link";
+import { PortableText } from "@portabletext/react";
 // import ExampleCarouselImage from 'components/ExampleCarouselImage';
 
-const MainCarousel = () => {
+async function getData(page = 0, pageSize = 9) {
+  const query = `*[_type == "post"] | order(publishedAt desc) [0] {
+    title,
+    slug,
+    author,
+    mainImage {
+      asset -> {
+        url
+      }
+    },
+    summary,
+    categories,
+    publishedAt,
+    body
+  }`
+
+  const res = await client.fetch(query);
+  return res;
+}
+
+export default function MainCarousel() {
+  const [post, setPost] = useState();
+
+  useEffect(() => {
+    const fetchedPost = async () => {
+      const fetchedPost = await getData();
+      setPost(fetchedPost);
+      console.log(fetchedPost);
+    };
+
+    fetchedPost();
+  }, []);
+
   return (
     <Carousel>
       <div className="flex flex-row p-10">
         <div className="w-1/2 pl-20 self-center">
-            <Image src="/testImg.png" width={500} height={500} objectFit="cover" alt="Descriptive alt text"/>
+            {post ? (<Image src={post.mainImage.asset.url} width={500} height={500} objectFit="cover" alt="Descriptive alt text"/>) : (<></>)}
           {/* <Image src="./latestblogsticker.svg" width={300} height={300} alt=""/> */}
         </div>
         <div className="w-1/2 pr-20 self-center">
-          <div className="text-6xl">
-            Underrated Releases of 2023
+          <div className="text-3xl font-bold">
+            {post ? (<>{post.title}</>) : (<></>)}
           </div>
           <div className="py-5">
-            Another year is behind us. I hope it treated you with kindness. If you are reading this and you don’t treat people with kindness, I hope the year treated you with violence. While I could talk at length about the more well known releases of this year I wanted to quickly highlight a few I think deserve more attention.
+            {post ? (<>{post.summary}</>) : (<></>)}
           </div>
           <div>
-            <button className="hover:underline">Read More</button>
+            {post ? (<Link href={`/blog/${post.slug.current}`} className="hover:underline">
+              Read more
+            </Link>):(<></>)}
           </div>
         </div>
       </div>
@@ -30,5 +67,3 @@ const MainCarousel = () => {
     </Carousel>
   );
 };
-
-export default MainCarousel;
