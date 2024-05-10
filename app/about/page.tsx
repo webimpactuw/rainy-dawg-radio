@@ -7,7 +7,7 @@ export default function About() {
     // Testing
     return (
         <div className="w-full">
-            <header className="bg-rdr-purple text-3xl text-center font-semibold pt-20 pb-10 h-30">
+            <header className="large-heading bg-rdr-purple text-center font-semibold pt-20 pb-10 h-30">
                 About Us
             </header>
             <IntroSection/>

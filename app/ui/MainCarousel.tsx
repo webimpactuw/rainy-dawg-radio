@@ -48,7 +48,7 @@ export default function MainCarousel() {
           {/* <Image src="./latestblogsticker.svg" width={300} height={300} alt=""/> */}
         </div>
         <div className="w-1/2 pr-20 self-center">
-          <div className="text-3xl font-bold">
+          <div className="large-heading font-bold">
             {post ? (<>{post.title}</>) : (<></>)}
           </div>
           <div className="py-5">

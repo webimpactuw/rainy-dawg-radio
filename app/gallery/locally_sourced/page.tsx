@@ -4,7 +4,7 @@ import Images from './Moments'
 export default function LocallySourced() {
     return(
         <>
-            <header className="bg-rdr-yellow text-5xl text-center font-semibold pt-20 pb-10 h-30">
+            <header className="large-heading bg-rdr-yellow text-center font-semibold pt-20 pb-10 h-30">
                 locally sourced
                 <p className="font-normal text-sm p-4">
                     Gallery
