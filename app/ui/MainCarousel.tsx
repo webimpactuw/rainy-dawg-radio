@@ -48,8 +48,6 @@ export default function MainCarousel() {
         </div>
         <div className="w-1/2 pr-20 self-center">
           <div className="large-heading font-bold">
-            {post ? (<>{post.title}</>) : (<></>)}
-          <div className="text-3xl font-bold">
             {post ? (<>{post[0].title}</>) : (<></>)}
           </div>
           <div className="py-5">
