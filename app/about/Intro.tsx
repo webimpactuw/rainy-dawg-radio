@@ -2,13 +2,12 @@ import Image from 'next/image'
 
 const Intro = () => {
     return (
-        <div className="my-28 flex flex-row place-content-center">
-            <div>
-                <Image src="/history.png" alt="person from gallery" width={550} height={550}
-                className="px-12"/>
+        <div className="p-10 flex flex-row items-center">
+            <div className="px-8">
+                <Image src="/history.png" alt="person from gallery" width={550} height={550}/>
             </div>
-            <div className="max-w-lg">
-                <h1 className='my-4 font-medium text-4xl'>
+            <div className="px-8 max-w-lg">
+                <h1 className='my-4 font-semibold text-4xl'>
                     The History of Rainy Dawg Radio
                 </h1>
                 <p className="text-sm">
