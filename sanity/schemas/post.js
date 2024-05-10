@@ -24,6 +24,11 @@ export const post = {
       to: {type: 'author'},
     },
     {
+      name: 'summary',
+      title: 'Summary',
+      type: 'string',
+    },
+    {
       name: 'mainImage',
       title: 'Main image',
       type: 'image',
