@@ -4,12 +4,18 @@ import Images from './Moments'
 export default function LocallySourced() {
     return(
         <>
-            <header className="bg-rdr-yellow text-5xl text-center font-semibold pt-20 pb-10 h-30">
-                locally sourced
-                <p className="font-normal text-sm p-4">
-                    Gallery
-                </p>
-                <Link href="/gallery" className="font-normal text-sm p-4">← back</Link>
+            <header className="flex flex-row bg-rdr-yellow p-16 pt-20">
+                {/* Container w back button */}
+                <div>
+                    <Link href="/gallery" className="font-normal text-sm pr-20 pl-48">← Back</Link>
+                </div>
+                {/* Container w title and parent page (i.e., Gallery) */}
+                <div className='flex flex-col text-5xl font-semibold'>
+                    locally sourced
+                    <p className='text-base font-normal pt-4'>
+                        Gallery
+                    </p>
+                </div>
             </header>
             <Images></Images>
         </>

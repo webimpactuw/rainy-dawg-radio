@@ -1,7 +1,7 @@
-export const gallery = {
-    name: 'gallery',
+export const eventPost = {
+    name: 'event',
+    title: 'Event',
     type: 'document',
-    title: 'Gallery',
     fields: [
       {
         name: 'name',
@@ -9,37 +9,43 @@ export const gallery = {
         type: 'string',
       },
       {
-        name: 'cover',
-        title: 'Cover',
+        name: 'date',
+        title: 'Date',
+        type: 'number',
+      },
+      {
+        name: 'image',
+        title: 'Cover Photo',
         type: 'image',
+        validation: (Rule) => Rule.required(),
         options: {
           hotspot: true,
         },
         fields: [
           {
             name: 'alt',
-            type: 'string',
             title: 'Alternative Text',
+            type: 'string',
           }
         ]
       },
       {
         name: 'images',
-        type: 'array',
         title: 'Images',
+        type: 'array',
         of: [
           {
             name: 'image',
-            type: 'image',
             title: 'Image',
+            type: 'image',
             options: {
               hotspot: true,
             },
             fields: [
               {
                 name: 'alt',
-                type: 'string',
                 title: 'Alternative text',
+                type: 'string',
               },
             ],
           },

@@ -27,7 +27,7 @@ const TeamApps = () => {
             className='mx-auto mb-20'/>
             <div className='grid grid-cols-2 gap-4 place-content-center'>
                 {currJobs.map((job, index) => (
-                    <Job key={index} title={job.title} desc={job.desc} appUrl={job.appUrl}/>
+                    <Job key={index} title={job.title} desc={job.desc} link={job.appUrl}/>
                 ))}
             </div>
         </div>    

@@ -6,7 +6,7 @@ async function getData() {
     const query = `*[_type == "teamperson"] | order(_createdAt asc) {
         image {
             asset -> {
-            url
+                url
             }
         },
         name,
