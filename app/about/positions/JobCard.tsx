@@ -1,4 +1,4 @@
-const JobCard = ({ title, desc, appUrl}) => {
+const JobCard = ({ title, desc, link}) => {
     return (
         <div className="outline outline-1">
             <header className='py-2 text-center font-semibold bg-rdr-yellow text-3xl outline outline-1'>
@@ -10,7 +10,7 @@ const JobCard = ({ title, desc, appUrl}) => {
                     {desc}
                 </p>
                 <button className="my-4">
-                    <a href={appUrl} className='inset-y-6 bg-rdr-yellow p-2'>
+                    <a href={link} className='inset-y-6 bg-rdr-yellow p-2'>
                         Apply
                     </a>
                 </button>
