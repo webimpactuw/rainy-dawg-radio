@@ -25,12 +25,13 @@ const TeamApps = () => {
         <div>
             <Image src='/joinTheTeam.png' alt="join the team" width={400}  height={400}
             className='mx-auto mb-20'/>
-            <div className='grid grid-cols-2 gap-4 place-content-center'>
+
+            <div className='grid grid-cols-2 gap-4 px-10 place-content-center' style={{margin:"auto"}}>
                 {currJobs.map((job, index) => (
                     <Job key={index} title={job.title} desc={job.desc} link={job.appUrl}/>
                 ))}
             </div>
-        </div>    
+        </div>
     )
 }
 

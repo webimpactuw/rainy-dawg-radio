@@ -44,31 +44,33 @@ function Player() {
   }, []);
 
   return (
-    <div className="flex flex-col justify-between border-2 border-black bg-white bottom-0 left-0 w-full sticky">
-        <div className="flex justify-between items-center px-4 py-2">
-            <div className="flex items-center space-x-2">
-                <div className="w-5 h-5 bg-red-500 rounded-full"></div>
-                
-                <span className="text-center text-lg">Live</span>
-            </div>
-            <div className="flex items-center justify-center space-x-3">
-                {spins ? (<span className="font-bold text-lg">{spins.title}</span>) : (<></>)}
-                <span>with TEST DJ</span>
-                {spins ? (<span>{spins.start + " - " + spins.end}</span>) : (<></>)}
-            </div>
-        
-            <div className="flex items-center justify-center space-x-3">
-                {spins && spins.image != "loading" ? (<Image src={spins.image}  width={61} height={61} alt={"album cover"}/>) : (<></>)}
-            
-                <div className="ml-2">
-                    {spins ? (<span className="font-bold">{spins.music}</span>) : (<></>)}
-                </div>
-                <div className="ml-2">
-                    {spins ? (<span className="text-sm">{spins.artist}</span>) : (<></>)}
-                </div>
+    <div className="player flex flex-col border-t-2 border-gray bg-white bottom-0 left-0 w-full sticky">
+        <div className="flex items-center justify-between px-10 py-2 space-x-6">
+          <section className="flex items-center space-x-2">
+            <div id="liveCircle" className="w-2 h-2 bg-red-500 rounded-full"></div>
+            <span className="text-center text-gray-500">Live</span>
+          </section>
 
-                <PlayButton />
+          <section className="flex items-center space-x-2">
+            <div>
+              {spins && spins.image != "loading" ? (<Image src={spins.image}  width={61} height={61} alt={"album cover"}/>) : (<></>)}
             </div>
+            <div>
+                {spins ? (<span className="font-semibold">{spins.music}</span>) : (<></>)}
+            </div>
+            <div>
+              <p><span className="text-gray-500">by</span> {spins ? (<span>{spins.artist}</span>) : (<></>)}</p>
+            </div>
+          </section>
+
+          <section>
+            <p className="text-gray-500">Playing on</p>
+            <div>
+              {spins ? (<span className="font-bold">{spins.title}</span>) : (<></>)}
+            </div>
+          </section>
+
+          <PlayButton />
         </div>
     </div>
 

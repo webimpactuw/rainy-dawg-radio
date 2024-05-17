@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.player {
+  font-size: 0.8rem;
+}
+
+.large-heading {
+  font-size: 2rem;
+}
+
+.medium-heading {
+  font-size: 1.6rem;
+}
