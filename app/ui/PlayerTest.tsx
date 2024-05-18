@@ -26,7 +26,7 @@ function Player() {
   async function updateSpins() {
     const res = await fetch("/api/spins");
     const spins = await res.json();
-    console.log(spins.music);
+    // console.log(spins.music);
     setSpins(spins);
   }
 
@@ -36,7 +36,7 @@ function Player() {
 
     const handle = setInterval(() => {
       updateSpins();
-      console.info("Getting spins");
+      // console.info("Getting spins");
     }, 1000);
     setTimerHandle(handle);
 

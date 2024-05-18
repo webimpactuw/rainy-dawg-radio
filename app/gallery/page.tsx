@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import MainGallery from './mainSection/GalleryCards'
+import GalleryCards from './mainSection/GalleryCards'
 import ZineSection from './Zines'
 
 export default function Gallery() {
@@ -14,7 +14,7 @@ export default function Gallery() {
                     </div>
                 </div>
             </header>
-            <MainGallery/>
+            <GalleryCards/>
             <ZineSection/>
         </div>
     )

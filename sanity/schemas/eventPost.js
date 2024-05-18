@@ -11,10 +11,19 @@ export const eventPost = {
       {
         name: 'date',
         title: 'Date',
-        type: 'number',
+        type: 'datetime',
       },
       {
-        name: 'image',
+        name: 'slug',
+        title: 'Slug',
+        type: 'slug',
+        options: {
+          source: 'name',
+          maxLength: 96,
+        },
+      },
+      {
+        name: 'coverImage',
         title: 'Cover Photo',
         type: 'image',
         validation: (Rule) => Rule.required(),
