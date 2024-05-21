@@ -2,7 +2,18 @@ import Image from 'next/image'
 import Job from './JobCard'
 import { client } from '../../../sanity/lib/client';
 
-
+async function getData() {
+    // Queries for corresponding attributes for a Job
+    const query = 
+    `*[_type == "jobapp"] | order(_createdAt asc) { 
+        jobname, 
+        description,
+        open,
+        link,
+    }`;
+    const res = await client.fetch(query);
+    return res;
+}
 
 type JobPost = {
     title: string;
@@ -27,6 +38,8 @@ const currJobs: JobPost[] = [
 ]
 
 const TeamApps = () => {
+    // Keeping this commented out until we fix cacheing
+    // const fetchedJobs = await getData();
     return (
         <div>
             <Image src='/joinTheTeam.png' alt="join the team" width={400}  height={400}
@@ -34,7 +47,12 @@ const TeamApps = () => {
 
             <div className='grid grid-cols-2 gap-4 px-10 place-content-center' style={{margin:"auto"}}>
                 {currJobs.map((job, index) => (
-                    <Job key={index} title={job.title} desc={job.desc} link={job.appUrl} open={job.open}/>
+                    <Job 
+                        key={index} 
+                        title={job.title} 
+                        desc={job.desc} 
+                        open={job.open}
+                        link={job.appUrl}/>
                 ))}
             </div>
         </div>
