@@ -4,11 +4,12 @@ import { client } from '../../../sanity/lib/client';
 
 async function getData() {
     const query = `*[_type == "event"] | order(_createdAt asc) {
-        cover {
+        coverImage {
             asset -> {
                 url
             }
         },
+        slug,
         name,
         date,
     }`
@@ -71,10 +72,10 @@ const GalleryCards = async () => {
                 {fetchedEvents.map((member, index) => (
                     <GalleryCard 
                         key={index} 
-                        title={member.title} 
+                        title={member.name} 
                         date={member.date} 
-                        photoUrl={member.photoUrl} 
-                        link={member.link}/>
+                        photoUrl={member.coverImage.asset.url} 
+                        link={"/gallery/"+member.slug.current}/>
                 ))}
             </div>
         </>
