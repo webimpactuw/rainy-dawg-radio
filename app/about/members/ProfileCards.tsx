@@ -11,7 +11,7 @@ async function getData() {
         },
         name,
         role,
-    }`
+    }`;
 
     const res = await client.fetch(query);
     return res;

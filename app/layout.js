@@ -1,14 +1,24 @@
-import { Azeret_Mono } from "next/font/google";
+import { Azeret_Mono, DM_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "./ui/Navbar";
 import Player from "./ui/PlayerTest";
 import Footer from "./ui/Footer";
 
-const inter = Azeret_Mono({ subsets: ["latin"] });
+const azeret = Azeret_Mono({
+  subsets: ["latin"],
+  display: 'swap',
+  variable: '--font-azeretmono',
+});
+
+const sans = DM_Sans({
+  subsets: ["latin"],
+  display: 'swap',
+  variable: '--font-dmsans',
+});
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${sans.variable} ${azeret.variable} font-sans`}>
       <head>
         <title>Rainy Dawg Radio</title>
         <link rel="icon" href="/logo.png"/>
@@ -16,8 +26,9 @@ export default function RootLayout({ children }) {
           name="author"
           content="Web Impact: Richie, Ayeush, Sophia, William, Farrel, Valentina, Sunny"
         />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
       </head>
-      <body className={inter.className + " flex flex-col overscroll-none"}>
+      <body className={"flex flex-col overscroll-none"}>
         <Navbar/>
         {children}
         <Footer/>

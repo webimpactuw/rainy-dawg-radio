@@ -50,7 +50,7 @@ export default function MainCarousel() {
           <div className="">
             Blog Post
           </div>
-          <div className="large-heading font-bold">
+          <div className={"font-mono large-heading font-bold "}>
             {post ? (<>{post[0].title}</>) : (<></>)}
           </div>
           <div className="py-5 hidden lg:flex">

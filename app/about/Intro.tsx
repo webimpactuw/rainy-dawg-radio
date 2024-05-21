@@ -7,7 +7,7 @@ const Intro = () => {
                 <Image src="/history.png" alt="person from gallery" width={550} height={550}/>
             </div>
             <div className="px-8 max-w-lg">
-                <h1 className='my-4 font-semibold text-4xl'>
+                <h1 className='font-mono my-4 font-semibold text-4xl'>
                     The History of Rainy Dawg Radio
                 </h1>
                 <p className="text-sm">

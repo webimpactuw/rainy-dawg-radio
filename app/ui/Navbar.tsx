@@ -9,10 +9,10 @@ export default function Navbar() {
             </Link>
 
             <div className="flex space-x-14">
-                <Link href="/about" className="hover:text-gray-700 font-bold">About</Link>
-                <Link href="/listen" className="hover:text-gray-700 font-bold">Listen</Link>
-                <Link href="/blog" className="hover:text-gray-700 font-bold">Blog</Link>
-                <Link href="/gallery" className="hover:text-gray-700 font-bold">Gallery</Link>
+                <Link href="/about" className="font-mono hover:text-gray-700 font-bold">About</Link>
+                <Link href="/listen" className="font-mono hover:text-gray-700 font-bold">Listen</Link>
+                <Link href="/blog" className="font-mono hover:text-gray-700 font-bold">Blog</Link>
+                <Link href="/gallery" className="font-mono hover:text-gray-700 font-bold">Gallery</Link>
             </div>
         </nav>)
 }
