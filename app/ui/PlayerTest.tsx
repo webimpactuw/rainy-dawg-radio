@@ -46,22 +46,31 @@ function Player() {
   return (
     <div className="player flex flex-col border-t-2 border-gray bg-white bottom-0 left-0 w-full sticky">
         <div className="flex items-center justify-between px-10 py-2 space-x-6">
-          <section className="flex items-center space-x-2">
-            <div id="liveCircle" className="w-2 h-2 bg-red-500 rounded-full"></div>
-            <span className="text-center text-gray-500">Live</span>
-          </section>
+          <div className="flex items-center space-x-2">
+            <section>
+              <div>
+                {spins && spins.image != "loading" ? (<Image src={spins.image}  width={61} height={61} alt={"album cover"}/>) : (<></>)}
+              </div>
+            </section>
 
-          <section className="flex items-center space-x-2">
-            <div>
-              {spins && spins.image != "loading" ? (<Image src={spins.image}  width={61} height={61} alt={"album cover"}/>) : (<></>)}
-            </div>
-            <div>
-                {spins ? (<span className="font-semibold">{spins.music}</span>) : (<></>)}
-            </div>
-            <div>
-              <p><span className="text-gray-500">by</span> {spins ? (<span>{spins.artist}</span>) : (<></>)}</p>
-            </div>
-          </section>
+            <section>
+              <div className="flex justify-between items-center space-x-2">
+                <p>
+                  {spins ? (<span className="font-mono font-semibold">{spins.music}</span>) : (<></>)}
+                </p>
+                <div id="liveCircle" className="inline w-2 h-2 bg-red-500 rounded-full"></div>
+              </div>
+
+              <div>
+                <p>
+                  <span className="text-gray-500">by </span>
+                  {spins ? (<span>{spins.artist}</span>) : (<></>)}
+                </p>
+              </div>
+            </section>
+          </div>
+
+          <PlayButton />
 
           <section>
             <p className="text-gray-500">Playing on</p>
@@ -70,7 +79,6 @@ function Player() {
             </div>
           </section>
 
-          <PlayButton />
         </div>
     </div>
 
