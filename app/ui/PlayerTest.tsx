@@ -45,16 +45,16 @@ function Player() {
 
   return (
     <div className="player flex flex-col border-t-2 border-gray bg-white bottom-0 left-0 w-full sticky">
-        <div className="flex items-center justify-between px-10 py-2 space-x-6">
-          <div className="flex items-center space-x-2">
+        <div className="flex items-center justify-between px-5 py-2 space-x-4">
+          <div className="flex items-center space-x-4">
             <section>
               <div>
-                {spins && spins.image != "loading" ? (<Image src={spins.image}  width={61} height={61} alt={"album cover"}/>) : (<></>)}
+                {spins && spins.image != "loading" ? (<Image src={spins.image}  width={50} height={50} alt={"album cover"}/>) : (<></>)}
               </div>
             </section>
 
             <section>
-              <div className="flex justify-between items-center space-x-2">
+              <div className="flex justify-between items-center space-x-4">
                 <p>
                   {spins ? (<span className="font-mono font-semibold">{spins.music}</span>) : (<></>)}
                 </p>

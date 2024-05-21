@@ -1,14 +1,14 @@
 const JobCard = ({ title, desc, open, link}) => {
     return (
         <div className="outline outline-1">
-            <header className='py-2 text-center font-semibold bg-rdr-yellow text-3xl outline outline-1'>
+            <header className='font-mono py-2 text-center font-semibold bg-rdr-yellow text-3xl outline outline-1'>
                 {title}
             </header>
             <div className = "p-6">
                 <p className="text-[0.8rem]">
                     {desc}
                 </p>
-                {/* If open == true, then display the "apply" button with hyperlink. 
+                {/* If open == true, then display the "apply" button with hyperlink.
                     Otherwise, display "closed" button. */}
                 {open ? (
                     <button className="my-4 p-2">

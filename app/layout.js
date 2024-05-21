@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
           content="Web Impact: Richie, Ayeush, Sophia, William, Farrel, Valentina, Sunny"
         />
       </head>
-      <body className={" flex flex-col overscroll-none"}>
+      <body className={"flex flex-col overscroll-none"}>
         <Navbar/>
         {children}
         <Footer/>
