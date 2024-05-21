@@ -26,6 +26,7 @@ export default function RootLayout({ children }) {
           name="author"
           content="Web Impact: Richie, Ayeush, Sophia, William, Farrel, Valentina, Sunny"
         />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
       </head>
       <body className={"flex flex-col overscroll-none"}>
         <Navbar/>

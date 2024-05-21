@@ -13,3 +13,7 @@
 .medium-heading {
   font-size: 1.6rem;
 }
+
+html {
+  overflow-x: hidden;
+}
