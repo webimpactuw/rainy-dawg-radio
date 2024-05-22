@@ -24,7 +24,7 @@ const ProfileCards = async () => {
             <header>
                 <Image src="/teamHeader.png" className="mx-auto" width={400} height={400} alt={"Meet the Team"}/>
             </header>
-            <div className="grid grid-cols-3 gap-1">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-1">
                 {fetchedPeople.map((member, index) => (
                     // <Card key={index} name={member.name} detail={member.position} photoUrl={member.photoUrl}/>
                     <Card 

@@ -26,7 +26,7 @@ const Zines = () => {
             <header>
                 <Image src="/zine.png" className="mx-auto" width={400} height={400} alt={"Meet the Team"}/>
             </header>
-            <div className="grid grid-cols-3 gap-1 m-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-1 m-8">
                 {allZines.map((member, index) => (
                     <ZineCard key={index} coverUrl={member.coverUrl} date={member.date} link={member.link}/>
                 ))}

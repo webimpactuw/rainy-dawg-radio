@@ -68,7 +68,7 @@ const GalleryCards = async () => {
     const fetchedEvents = await getData();
     return (
         <>
-            <div className="grid grid-cols-3 gap-1">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-1">
                 {fetchedEvents.map((member, index) => (
                     <GalleryCard 
                         key={index} 

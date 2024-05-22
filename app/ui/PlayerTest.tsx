@@ -49,7 +49,7 @@ function Player() {
           <div className="flex items-center space-x-4">
             <section>
               <div>
-                {spins && spins.image != "loading" ? (<Image src={spins.image}  width={50} height={50} alt={"album cover"}/>) : (<></>)}
+                {spins && spins.image != "loading" && spins.image != null ? (<Image src={spins.image}  width={50} height={50} alt={"album cover"}/>) : (<></>)}
               </div>
             </section>
 

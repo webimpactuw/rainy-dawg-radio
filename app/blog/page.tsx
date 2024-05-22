@@ -49,7 +49,7 @@ export default function Post() {
               </div>
           </div>
       </header>
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {posts.map((post, index) => (
           <Link href={`/blog/${post.slug.current}`} className="relative outline outline-1 rounded-sm bg-white outline-gray-300
                     p-2 mx-10 my-10 hover:shadow-lg">
