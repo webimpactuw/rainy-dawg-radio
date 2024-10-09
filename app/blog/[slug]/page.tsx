@@ -4,7 +4,7 @@ import { client } from '../../../sanity/lib/client'
 import Image from 'next/image';
 import { PortableText } from '@portabletext/react'
 
-export const isRecord = (val: unknown): val is Record<string, unknown> => {
+const isRecord = (val: unknown): val is Record<string, unknown> => {
     return val !== null && typeof val === "object";
 };
 
@@ -46,8 +46,8 @@ export default function Post({ params }) {
 
             // Convert to a more readable format
             // You can adjust the options to get the format you prefer
-            const options = { year: 'numeric', month: 'long', day: 'numeric' };
-            const readableDate = date.toLocaleDateString('en-US', options);
+            // const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const readableDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
             setPost({kind: "loaded", title: res[0].title, author: "William Park", publishedAt: readableDate, imageUrl: res[0].mainImage.asset.url, body: res[0].body});
         }
     

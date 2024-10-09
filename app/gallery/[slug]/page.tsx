@@ -4,7 +4,7 @@ import { client } from '../../../sanity/lib/client'
 import Image from 'next/image';
 import Carousel from '../../ui/Carousel';
 
-export const isRecord = (val: unknown): val is Record<string, unknown> => {
+const isRecord = (val: unknown): val is Record<string, unknown> => {
     return val !== null && typeof val === "object";
 };
 
