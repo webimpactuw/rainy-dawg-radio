@@ -51,7 +51,7 @@ export default function Post() {
       </header>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {posts.map((post, index) => (
-          <Link href={`/blog/${post.slug.current}`} className="relative outline outline-1 rounded-sm bg-white outline-gray-300
+          <Link key= {post.slug.current} href={`/blog/${post.slug.current}`} className="relative outline outline-1 rounded-sm bg-white outline-gray-300
                     p-2 mx-10 my-10 hover:shadow-lg">
           <Image src={post.mainImage.asset.url} alt={post.title} width='400' height='400' className="w-[400px] h-[400px] p-6 object-cover" />
           <h3 className="text-2xl text-center font-semibold my-2">{post.title}</h3>
