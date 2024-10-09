@@ -43,7 +43,7 @@ export default function MainCarousel() {
     <Carousel>
       <div className="flex flex-col lg:flex-row lg:p-10">
         <div className="lg:w-1/2 lg:pl-20 self-center">
-            {post ? (<Image src={post[0].mainImage.asset.url} className="w-[300px] h-[300px] lg:w-[500px] lg:h-[500px] object-cover" width={500} height={500} objectFit="cover" alt="Descriptive alt text"/>) : (<></>)}
+            {post ? (<Image src={post[0]['mainImage']['asset']['url']} className="w-[300px] h-[300px] lg:w-[500px] lg:h-[500px] object-cover" width={500} height={500} objectFit="cover" alt="Descriptive alt text"/>) : (<></>)}
           {/* <Image src="./latestblogsticker.svg" width={300} height={300} alt=""/> */}
         </div>
         <div className="px-20 lg:w-1/2 lg:pr-20 self-center">
@@ -51,13 +51,13 @@ export default function MainCarousel() {
             Blog Post
           </div>
           <div className={"font-mono large-heading font-bold "}>
-            {post ? (<>{post[0].title}</>) : (<></>)}
+            {post ? (<>{post[0]['title']}</>) : (<></>)}
           </div>
           <div className="py-5 hidden lg:flex">
-            {post ? (<>{post[0].summary}</>) : (<></>)}
+            {post ? (<>{post[0]['summary']}</>) : (<></>)}
           </div>
           <div>
-            {post ? (<Link href={`/blog/${post[0].slug.current}`} className="hover:underline">
+            {post ? (<Link href={`/blog/${post[0]['slug']['current']}`} className="hover:underline">
               Read more
             </Link>):(<></>)}
           </div>
@@ -65,18 +65,18 @@ export default function MainCarousel() {
       </div>
       <div className="flex flex-row p-10">
         <div className="w-1/2 pl-20 self-center">
-            {post ? (<Image src={post[1].mainImage.asset.url} className="w-[500px] h-[500px] object-cover" width={500} height={500} objectFit="cover" alt="Descriptive alt text"/>) : (<></>)}
+            {post ? (<Image src={post[1]['mainImage']['asset']['url']} className="w-[500px] h-[500px] object-cover" width={500} height={500} objectFit="cover" alt="Descriptive alt text"/>) : (<></>)}
           {/* <Image src="./latestblogsticker.svg" width={300} height={300} alt=""/> */}
         </div>
         <div className="w-1/2 pr-20 self-center">
           <div className="text-3xl font-bold">
-            {post ? (<>{post[1].title}</>) : (<></>)}
+            {post ? (<>{post[1]['title']}</>) : (<></>)}
           </div>
           <div className="py-5">
-            {post ? (<>{post[1].summary}</>) : (<></>)}
+            {post ? (<>{post[1]['summary']}</>) : (<></>)}
           </div>
           <div>
-            {post ? (<Link href={`/blog/${post[1].slug.current}`} className="hover:underline">
+            {post ? (<Link href={`/blog/${post[1]['slug']['current']}`} className="hover:underline">
               Read more
             </Link>):(<></>)}
           </div>
