@@ -22,7 +22,6 @@ async function getData(page = 0, pageSize = 9) {
   const res = await client.fetch(query);
   return res;
 }
-
 export default function Post() {
   const [posts, setPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
@@ -32,11 +31,12 @@ export default function Post() {
     const fetchPosts = async () => {
       const fetchedPosts = await getData(currentPage, pageSize);
       setPosts(fetchedPosts);
-      console.log(fetchedPosts)
+      console.log(fetchedPosts);
     };
 
     fetchPosts();
   }, [currentPage]);
+
 
   return (
     <div className="w-screen">
@@ -55,7 +55,7 @@ export default function Post() {
                     p-2 mx-10 my-10 hover:shadow-lg">
           <Image src={post.mainImage.asset.url} alt={post.title} width='400' height='400' className="w-[400px] h-[400px] p-6 object-cover" />
           <h3 className="text-2xl text-center font-semibold my-2">{post.title}</h3>
-          <p className="text-center mb-8">Published: {new Date(post.publishedAt).toLocaleDateString()}</p>
+          <p className="text-center mb-8">Published: {new Date(post.publishedAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
           <div className='absolute -left-6 -bottom-6 outline outline-1 rounded-sm outline-gray-300
           h-full w-full bg-white -z-10'>
           </div>
