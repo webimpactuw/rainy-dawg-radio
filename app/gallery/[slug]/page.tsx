@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { client } from '../../../sanity/lib/client'
 import Image from 'next/image';
 import Carousel from '../../ui/Carousel';
@@ -11,25 +11,27 @@ const isRecord = (val: unknown): val is Record<string, unknown> => {
 export default function Post({ params }) {
     const [post, setPost] = useState({kind: "loading", name: "", date: "", coverImage: "", coverImageAlt: "", images: []});
 
-    const query = `*[_type == "event" && slug.current == '${params.slug}']{ 
-        name,
-        date,
-        slug,
-        coverImage {
-                asset -> {
-                  url
-                }, 
-                alt
-            },
-        images[] {
-          "url": asset -> {url}, 
-                alt
-        }
-    }`
-
-    const res = client.fetch(query)
-                    .then(res => handleResp(res))
-                    .catch(err => console.error(err));
+    async function getData() {
+        const query = `*[_type == "event" && slug.current == '${params.slug}']{ 
+            name,
+            date,
+            slug,
+            coverImage {
+                    asset -> {
+                      url
+                    }, 
+                    alt
+                },
+            images[] {
+              "url": asset -> {url}, 
+                    alt
+            }
+        }`;
+        const res = await client.fetch(query)
+            .then(res => handleResp(res))
+            .catch(err => console.error(err));
+        return res;
+    }
 
     const handleResp = (res: Response): void => {
         if (!isRecord(res[0])) {
@@ -43,12 +45,24 @@ export default function Post({ params }) {
             && isRecord(res[0].coverImage.asset) 
             && typeof res[0].coverImage.asset.url === "string"
             && typeof res[0].coverImage.alt === "string"
-            && Array.isArray(res[0].images)
-        ) {
-            setPost({kind: "loaded", name: res[0].name, date: res[0].date, coverImage: res[0].coverImage.asset.url, coverImageAlt: res[0].coverImage.alt, images: res[0].images});
+            && Array.isArray(res[0].images)) {
+            const date = new Date(res[0].date);
+            // Convert to a more readable format
+            // You can adjust the options to get the format you prefer
+            // const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const readableDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+            setPost({kind: "loaded", name: res[0].name, date: readableDate, coverImage: res[0].coverImage.asset.url, coverImageAlt: res[0].coverImage.alt, images: res[0].images});
         }
 
     };
+    useEffect(() => {
+            const fetchPosts = async () => {
+                const fetchedPost = await getData();
+                //console.log(fetchedPost);
+            };
+    
+            fetchPosts();
+        }, []);
 
     return (<div className="w-full h-max flex justify-center items-center flex-col">
                 {post.kind === "loaded" ? (
@@ -57,7 +71,7 @@ export default function Post({ params }) {
                             {post.name}
                         </h1>
                         <h5 className='text-center'>
-                            Published at: {post.date}
+                            Published: {post.date}
                         </h5>
                         <Carousel>
                         {post.images.map((image, index) => (
@@ -70,4 +84,4 @@ export default function Post({ params }) {
                 ) : (<></>)}
 
             </div>)
-}
+};

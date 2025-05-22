@@ -18,51 +18,6 @@ async function getData() {
     return result;
 }
 
-// type Event = {
-//     title: string;
-//     date: string;
-//     photoUrl: string;
-//     link: string;
-//   };
-
-// const events: Event[] = [
-//     {
-//         title: "locally sourced",
-//         date: "2024",
-//         photoUrl: "/fillerTwo.png",
-//         link: "/gallery/locally_sourced",
-//     },
-//     {
-//         title: "local shows",
-//         date: "2023",
-//         photoUrl: "/fillerTwo.png",
-//         link: "#",
-//     },
-//     {
-//         title: "birthday fest",
-//         date: "2023",
-//         photoUrl: "/Charlie.png",
-//         link: "#",
-//     },
-//     {
-//         title: "DJs",
-//         date: "2023",
-//         photoUrl: "/fillerTwo.png",
-//         link: "#",
-//     },
-//     {
-//         title: "history of rdr",
-//         date: "2022",
-//         photoUrl: "/fillerTwo.png",
-//         link: "#",
-//     },
-//     {
-//         title: "battle of the bands",
-//         date: "2018",
-//         photoUrl: "/fillerThree.png",
-//         link: "#",
-//     },
-// ]
 
 const GalleryCards = async () => {
     const fetchedEvents = await getData();
@@ -73,7 +28,7 @@ const GalleryCards = async () => {
                     <GalleryCard 
                         key={index} 
                         title={member.name} 
-                        date={member.date} 
+                        date={new Date(member.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })} 
                         photoUrl={member.coverImage.asset.url} 
                         link={"/gallery/"+member.slug.current}/>
                 ))}

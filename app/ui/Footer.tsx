@@ -28,16 +28,16 @@ export default function Footer() {
                     <div className='flex flex-col'>
                         {/* Just icons */}
                         <div className='flex flex-row justify-end text-3xl space-x-16 py-12'>
-                            <a href="https://x.com" className="text-black hover:text-gray-700">
+                            <a href="https://x.com/rainydawgradio" className="text-black hover:text-gray-700">
                                     <FaXTwitter  />
                             </a>
-                            <a href="https://facebook.com" className="text-black hover:text-gray-700">
+                            <a href="https://www.facebook.com/RainyDawgRadio/" className="text-black hover:text-gray-700">
                                 <FaFacebookF />
                             </a>
                             <a href="https://www.instagram.com/rainydawgradio/" className="text-black hover:text-gray-700">
                                 <FaInstagram />
                             </a>
-                            <a href="https://spotify.com" className="text-black hover:text-gray-700">
+                            <a href="https://open.spotify.com/user/duw2cz3q0rhhodijwwd5r5mc1?si=2e10d794231e42f3" className="text-black hover:text-gray-700">
                                 <FaSpotify />
                             </a>
                             <a href="https://tumblr.com" className="text-black hover:text-gray-700">

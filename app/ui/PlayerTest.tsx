@@ -26,7 +26,7 @@ function Player() {
   async function updateSpins() {
     const res = await fetch("/api/spins");
     const spins = await res.json();
-    // console.log(spins.music);
+    //console.log(spins.music);
     setSpins(spins);
   }
 

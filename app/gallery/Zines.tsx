@@ -9,7 +9,7 @@ type Zine = {
 
 const allZines: Zine[] = [
     {
-        coverUrl: "",
+        coverUrl: "/zine23.png",
         date: "2024",
         link: "https://issuu.com/rdrzine/docs/final_zine_issuu",
     },
