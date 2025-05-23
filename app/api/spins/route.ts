@@ -6,12 +6,13 @@ let cache = {
   start: "loading",
   end: "loading",
   title: "loading",
+  showResponse: null,
+  spinResponse: null,
 };
 let cacheRefreshTS = 0;
 const cacheStaleMs = 1000 * 10; // 10 seconds
 
 async function getSpins() {
-  console.info('Making spins network req')
   fetch(`https://spinitron.com/api/spins`, {
     headers: {
       'Authorization': `Bearer ${"VIT_hdbWICcgF3nGwvcLJCf6"}`
@@ -22,13 +23,13 @@ async function getSpins() {
 
 async function handleSpins(res: Response) {
   const spin = await res.json();
+  cache.spinResponse = spin;
   cache.music = spin.items[0].song;
   cache.artist = spin.items[0].artist;
   cache.image = spin.items[0].image;
 }
 
 async function getShows() {
-  console.info('Making spins network req')
   fetch(`https://spinitron.com/api/shows`, {
     headers: {
       'Authorization': `Bearer ${"VIT_hdbWICcgF3nGwvcLJCf6"}`
@@ -56,24 +57,24 @@ async function handleShow(res: Response) {
   // Formatting the output to ensure two digits for both hours and minutes
   const formattedEndTime = `${endHours.toString().padStart(2, '0')}:${endMinutes.toString().padStart(2, '0')}`;
 
+  cache.showResponse = show;
   cache.start = formattedStartTime;
   cache.end = formattedEndTime;
   cache.title = show.items[0].title;
-} 
+}
 
 export async function GET (
   request: Request
 ) {
   try {
     if (Date.now() > cacheRefreshTS + cacheStaleMs) {
-      console.log("reloading");
       cacheRefreshTS = Date.now();
       await getSpins();
       await getShows();
     }
     return NextResponse.json(cache);
-  } catch {
-    console.error("error")
-    return new Response("error")
+  } catch (error: any) {
+    console.error("error", error)
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

@@ -13,7 +13,7 @@ import {schema} from './sanity/schema'
 export default defineConfig({
   basePath: '/studio',
   projectId: '4sifji3s',
-  dataset: 'production',
+  dataset: 'Rainy Dawg Radio 2024',
   // Add and edit the content schema in the './sanity/schema' folder
   schema,
   plugins: [
