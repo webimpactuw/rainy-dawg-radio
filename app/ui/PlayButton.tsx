@@ -2,6 +2,7 @@
 import Image from "next/image"
 import { useRef, useState } from "react";
 
+const STREAM_SRC = "http://166.62.119.4:8000/stream";
 
 export default function PlayButton() {
     const audioRef = useRef<HTMLAudioElement>(null);
@@ -32,7 +33,7 @@ export default function PlayButton() {
                 )}
             </button>
             {/* rainy dawg was down */}
-            <audio ref={audioRef} src="https://cp10.shoutcheap.com:18383/stream" preload="none"></audio>
+            <audio ref={audioRef} src={STREAM_SRC} preload="none"></audio>
         </>
     )
 }

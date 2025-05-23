@@ -1,26 +1,9 @@
 'use client'
-import { useEffect, useRef, useState } from "react";
-import styles from "./Player.module.scss";
+import { useEffect, useState } from "react";
 import PlayButton from "./PlayButton";
 import Image from "next/image";
 
-const STREAM_SRC = "http://166.62.119.4:8000/stream";
-
 function Player() {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const audioRef = useRef<HTMLAudioElement>(null);
-
-  function playPause() {
-    if (audioRef.current) {
-      if (isPlaying) {
-        audioRef.current.pause();
-      } else {
-        audioRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
-    }
-  }
-
   const [spins, setSpins] = useState<any>(null);
 
   async function updateSpins() {
