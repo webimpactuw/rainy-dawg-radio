@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import PlayButton from "./PlayButton";
 import Image from "next/image";
+const REQUEST_RATE = 1000 * 10; // 10 seconds
 
 function Player() {
   const [spins, setSpins] = useState<any>(null);
@@ -12,9 +13,7 @@ function Player() {
         const res = await fetch("/api/spins");
         const spins = await res.json();
         setSpins(spins);
-        console.log("updateSpins - spins:", spins);
       } catch (error) {
-        console.error("updateSpins - error:", error);
       }
     }
 
@@ -22,14 +21,10 @@ function Player() {
 
     const handle = setInterval(() => {
       updateSpins();
-    }, 1000);
+    }, REQUEST_RATE);
 
     return () => clearInterval(handle);
   }, []);
-
-  useEffect(() => {
-    console.log("PlayerTest - spins changed to:", spins);
-  }, [spins]);
 
   return (
     <div className="player flex flex-col border-t-2 border-gray bg-white bottom-0 left-0 w-full sticky">
