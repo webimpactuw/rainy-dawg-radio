@@ -1,13 +1,14 @@
 import { NextResponse } from "next/server";
-let cache: any = {};
+let cache = {
+  music: "loading",
+  artist: "loading",
+  image: "loading",
+  start: "loading",
+  end: "loading",
+  title: "loading",
+};
 let cacheRefreshTS = 0;
 const cacheStaleMs = 1000 * 10; // 10 seconds
-let currMusic = "loading";
-let currArtist = "loading";
-let currImage = "loading";
-let currStart = "loading";
-let currEnd = "loading";
-let currTitle = "loading";
 
 async function getSpins() {
   console.info('Making spins network req')
@@ -21,9 +22,9 @@ async function getSpins() {
 
 async function handleSpins(res: Response) {
   const spin = await res.json();
-  currMusic = spin.items[0].song;
-  currArtist = spin.items[0].artist;
-  currImage = spin.items[0].image;
+  cache.music = spin.items[0].song;
+  cache.artist = spin.items[0].artist;
+  cache.image = spin.items[0].image;
 }
 
 async function getShows() {
@@ -55,9 +56,9 @@ async function handleShow(res: Response) {
   // Formatting the output to ensure two digits for both hours and minutes
   const formattedEndTime = `${endHours.toString().padStart(2, '0')}:${endMinutes.toString().padStart(2, '0')}`;
 
-  currStart = formattedStartTime;
-  currEnd = formattedEndTime;
-  currTitle = show.items[0].title;
+  cache.start = formattedStartTime;
+  cache.end = formattedEndTime;
+  cache.title = show.items[0].title;
 } 
 
 export async function GET (
@@ -67,10 +68,10 @@ export async function GET (
     if (Date.now() > cacheRefreshTS + cacheStaleMs) {
       console.log("reloading");
       cacheRefreshTS = Date.now();
-      cache.spins = await getSpins();
-      cache.shows = await getShows();
+      await getSpins();
+      await getShows();
     }
-    return NextResponse.json({music: currMusic, artist: currArtist, image: currImage, start: currStart, end: currEnd, title: currTitle});
+    return NextResponse.json(cache);
   } catch {
     console.error("error")
     return new Response("error")
